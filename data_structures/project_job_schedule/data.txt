@@ -1,0 +1,10 @@
+4:30,30,Price Loader
+15:00,20,Transaction Validator
+18:00,75,Batch Process
+19:15,15,Batch Report
+2:30,30,Transaction Preprocess
+21:00,30,Nightly Refresh
+22:30,15,Batch Cleanup
+10:30,15,Reading
+19:25,10,This will reject
+10:15,18,This will reject
