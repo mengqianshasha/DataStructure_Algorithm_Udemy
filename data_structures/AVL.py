@@ -105,13 +105,13 @@ class AVLTree:
                 node.right = self.delete(node.right, right_min)
                 return node
 
-        # update the height of parent node
+        # update the height of parent node (upward until the root)
         node.height = max(self.calculate_height(node.left), self.calculate_height(node.right)) + 1
 
         # get balance factor
         balance = self.balance_factor(node)
 
-        # rotate if unbalanced:
+        # rotate if unbalanced (upward until the root):
         # 1. left left
         if balance > 1 and self.balance_factor(node.left) >= 0:
             return self.right_rotate(node)
@@ -135,16 +135,16 @@ class AVLTree:
             return node.data
         return self.get_min(node.left)
 
-tree = AVLTree()
-root = None
-root = tree.insert(5, root)
-root = tree.insert(8, root)
-root = tree.insert(3, root)
-root = tree.insert(4, root)
-root = tree.insert(1, root)
-root = tree.insert(2, root)
-root = tree.insert(10, root)
-root = tree.insert(7, root)
-
-root = tree.delete(root, 5)
-print(root.height)
+# tree = AVLTree()
+# root = None
+# root = tree.insert(5, root)
+# root = tree.insert(8, root)
+# root = tree.insert(3, root)
+# root = tree.insert(4, root)
+# root = tree.insert(1, root)
+# root = tree.insert(2, root)
+# root = tree.insert(10, root)
+# root = tree.insert(7, root)
+#
+# root = tree.delete(root, 5)
+# print(root.height)
