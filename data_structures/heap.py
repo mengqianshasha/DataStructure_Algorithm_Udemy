@@ -30,12 +30,18 @@ class MaxHeap:
         self._sift_down(0)
         return max_item
 
+    # private method used for heapify method.
     def _sift_down(self, index):
         index_child_left = 2 * index + 1
         index_child_right = 2 * index + 2
 
+        # while there is left child
         while index_child_left < self.size:
+
+            # if there is right child
             if index_child_right < self.size:
+
+                # make sure the parent node the largest of the three
                 if self.heap[index_child_left] > self.heap[index_child_right]:
                     index_larger = index_child_left
                 else:
@@ -47,6 +53,8 @@ class MaxHeap:
                     index_child_right = 2 * index + 2
                 else:
                     break
+
+            # if there is only left child
             else:
                 if self.heap[index] < self.heap[index_child_left]:
                     self.heap[index], self.heap[index_child_left] = self.heap[index_child_left], self.heap[index]
@@ -55,7 +63,7 @@ class MaxHeap:
     def heapify(self, data_list):
         self.heap = data_list
         self.size = len(data_list)
-        start_num = int(((self.size - 1) - 1) / 2)
+        start_num = int(((self.size - 1) - 1) / 2)    # start from the node with at least one child
 
         for i in range(start_num, -1, -1):
             self._sift_down(i)
