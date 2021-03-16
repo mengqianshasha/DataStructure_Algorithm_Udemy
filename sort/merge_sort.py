@@ -19,19 +19,14 @@ def merge_sorted(arr1, arr2):
     return sorted_arr
 
 
-# l1 = []
-# l2 = [2,3,5,7,8,9,23,45,67]
-# arr = merge_sorted(l1, l2)
-# print(arr)
-
 def merge_sort(arr):
     if len(arr) < 2:
         return arr
-    else:
-        middle = len(arr)//2
-        l1 = merge_sort(arr[:middle])
-        l2 = merge_sort(arr[middle:])
-        return merge_sorted(l1, l2)
 
-# l = [3]
-# print(divide(l))
+    middle = len(arr)//2
+
+    l1 = merge_sort(arr[:middle])
+    l2 = merge_sort(arr[middle:])
+
+    return merge_sorted(l1, l2)
+
